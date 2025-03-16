@@ -1,0 +1,105 @@
+.latest-article {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.latest-article img {
+    width: 800px;
+    height: auto;
+}
+
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.article-item {
+    text-align: center;
+    width: 300px;
+}
+
+.article-item img {
+    width: 100%;
+    height: auto;
+}
+
+.article-item h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.article-item a {
+    text-decoration: none;
+    color: blue;
+}
+
+.article-item a:hover {
+    text-decoration: underline;
+}
+
+@font-face {
+    font-family: 'Neuropol';
+    src: url('fonts/Neuropol_X_Rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Neuropol', Arial, sans-serif;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: #000000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo img {
+    margin-right: 20px;
+    width: 160px;
+    height: auto;
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-style: bold;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #8c00e9;
+    color: white;
+    cursor: pointer;    
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Neuropol';
+    font-style: italic;
+}
+
+.nav-links a button:hover {
+    background-color: #6e00b8;
+}
+
+.nav-links .active button {
+    font-weight: bold;
+    text-decoration: underline;
+    color: rgb(255, 139, 210);
+}
