@@ -1,6 +1,5 @@
 <?php
-session_start();
-include "../includes/db.php";
+include "../includes/init.php";
 
 $sql = "SELECT comments.comment_text, comments.comment_date, users.username, 
                articles.article_title, articles.article_id 
@@ -13,12 +12,17 @@ $result = $conn->query($sql);
 ?>
 
 <html>
-    <head>
-        <title>Technoblog - Community</title>
-        <?php include '../includes/header.php'; ?>
-    </head>
-    <body style="color: white;">
-        <h1><b>community page</b></h1>
+<head>
+    <title>Technoblog - Community</title>
+    <link rel="stylesheet" type="text/css" href="../assets/styles.css">
+</head>
+<body>
+    
+    <?php include '../includes/header.php'; ?>
+
+    <div class="magazine-container">
+        <h1><b>Community Page</b></h1>
+        <p>Hier findest du alle neuste Kommentare von unseren lieben Community.</p>
         <div class="comment-section">
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -36,5 +40,9 @@ $result = $conn->query($sql);
                 <p>No comments yet. Be the first to comment!</p>
             <?php endif; ?>
         </div>
-    </body>
+    </div>
+
+    <?php include '../includes/footer.php'; ?>
+
+</body>
 </html>

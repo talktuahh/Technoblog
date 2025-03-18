@@ -1,6 +1,7 @@
 <?php
-include "../includes/db.php";
-session_start();
+include "../includes/init.php";
+
+$error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
@@ -17,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->fetch();
 
             if (password_verify($password, $hashed_password)) {
+                session_start();
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["username"] = $username;
 
@@ -30,19 +32,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: main.php");
                 exit();
             } else {
-                echo "❌ Invalid password!";
+                $error_message = "❌ Invalid password!";
             }
         } else {
-            echo "❌ Username not found!";
+            $error_message = "❌ Username not found!";
         }
     } else {
-        echo "❌ Both fields are required!";
+        $error_message = "❌ Both fields are required!";
     }
 }
 ?>
 
-<form action="login.php" method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Technoblog</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+
+<div class="login-container">
+    <img src="../assets/images/DataNautica_Logo.png" alt="Technoblog Logo" class="login-logo">
+    
+    <form action="login.php" method="POST" class="login-form">
+        <h2>Login</h2>
+
+        <?php if (!empty($error_message)): ?>
+            <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
+        <?php endif; ?>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="button">Login</button>
+
+        <p>Don't have an account? <a href="register.php">Register here</a></p>
+    </form>
+</div>
+<?php include '../includes/footer.php'; ?>
+</body>
+</html>

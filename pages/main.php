@@ -1,6 +1,6 @@
 <?php
-    include "../includes/db.php";
-    $sql = "SELECT * FROM articles ORDER BY article_id DESC";
+    include "../includes/init.php";
+    $sql = "SELECT * FROM articles ORDER BY article_id DESC LIMIT 4";
     $result = $conn->query($sql);
     $articles = [];
     if ($result && $result->num_rows > 0) {
@@ -13,9 +13,11 @@
 <html>
     <head>
         <title>Technoblog - Home</title>
-        <?php include '../includes/header.php'; ?>
+        <link rel="stylesheet" type="text/css" href="../assets/styles.css">
     </head>
     <body>
+        <?php include '../includes/header.php'; ?>
+        <div class="main-container">
         <?php if (!empty($articles)): ?>
             <?php $firstArticle = array_shift($articles); ?>
             <div class="latest-article">
@@ -38,5 +40,7 @@
         <?php else: ?>
             <p>Keine Artikel gefunden.</p>
         <?php endif; ?>
+        </div>
+        <?php include '../includes/footer.php'; ?>
     </body>
 </html>

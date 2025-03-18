@@ -3,6 +3,22 @@
     src: url('fonts/Neuropol_X_Rg.otf') format('opentype');
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
 h1 {
     font-family: 'Neuropol';
     font-style: bold;
@@ -39,6 +55,36 @@ body {
     background-size: 1500px 1500px;
 }
 
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #f91eb2;
+    cursor: pointer;    
+    border-radius: 5px;
+    font-family: 'Neuropol';
+    font-size: 16px;
+    color: #ffffff;
+    transition-duration: 0.3s;
+}
+
+button:hover {
+    background-color: #bd0081;
+    transform: scale(1.05);
+}
+
+.active button{
+    font-weight: bold;
+    text-decoration: underline;
+    transform: scale(0.95);
+    color: #000000;
+}
+
+.active button:hover{
+    font-weight: bold;
+    text-decoration: underline;
+    transform: scale(1.0);
+}
+
 header {
     padding: 20px;
 }
@@ -48,13 +94,30 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 139, 210, 0.5);
+}
+
+.main-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 139, 210, 0.5);
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+}
+
+header p {
+    margin-left: 20px;
 }
 
 .logo img {
@@ -71,45 +134,44 @@ header {
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 10px;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
-.nav-links a button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #8c00e9;
-    cursor: pointer;    
-    border-radius: 5px;
-    font-family: 'Neuropol';
-    font-size: 16px;
-    color: #ffffff;
-    transition-duration: 0.3s;
-}
-
-.nav-links a button:hover {
-    background-color: #6e00b8;
-}
-
-.nav-links .active button {
-    font-weight: bold;
-    text-decoration: underline;
-    color: #ff8bd2;
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: stretch;
+    width: auto;
 }
 
 .latest-article {
     text-align: center;
     margin-bottom: 40px;
+    text-decoration: none;
 }
 
 .latest-article a img {
-    width: 800px;
+    width: 1200px;
     height: auto;
     transition-duration: 0.3s;
 }
 
 .latest-article a:hover img {
-    box-shadow: 0px 0px 150px rgb(230, 0, 210);
+    box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.4);
     transition-duration: 0.3s;
+    transform: scale(1.05);
+}
+
+.latest-article a {
+    text-decoration: none;
+}
+
+.latest-article a:hover {
+    text-decoration: none;
 }
 
 .article-list {
@@ -121,14 +183,265 @@ header {
 
 .article-item {
     text-align: center;
-    width: 300px;
+    width: 400px;
 }
 
-.article-item img {
+.article-item a img {
     width: 100%;
     height: auto;
+    transition-duration: 0.3s;
+}
+
+.article-item a:hover img {
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.4);
+    transition-duration: 0.3s;
+    transform: scale(1.05);
 }
 
 .article-item a {
     text-decoration: none;
+}
+
+.article-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 139, 210, 0.5);
+}
+
+.article-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.article-header img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.article-content {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.comment-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.comment-section h2 {
+    font-size: 22px;
+}
+
+.comment-section textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.magazine-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 139, 210, 0.5);
+}
+
+.article-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.article-row img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.article-text {
+    flex-grow: 1;
+}
+
+.article-text h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.article-text h2 a {
+    color: white;
+    text-decoration: none;
+}
+
+.article-text h2 a:hover {
+    text-decoration: underline;
+    color: #ff8bd2;
+}
+
+.article-meta {
+    font-size: 16px;
+    color: #b0b0b0;
+    margin-top: 5px;
+}
+
+.article-info p {
+    margin: 2px 0; 
+    font-size: 16px;
+    color: #b0b0b0; 
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 139, 210, 0.5);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form label {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+}
+
+.login-form input {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    font-size: 18px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+}
+
+.login-form p {
+    font-size: 18px;
+}
+
+.login-form p a {
+    color: #ff8bd2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-form p a:hover {
+    text-decoration: underline;
+}
+
+.comment-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.comment {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.comment b {
+    color: #ff8bd2;
+    font-size: 18px;
+}
+
+.comment p {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.comment small {
+    font-size: 14px;
+    color: #b0b0b0;
+    display: block;
+    margin-top: 5px;
+}
+
+.comment a {
+    color: #ff8bd2;
+    text-decoration: none;
+}
+
+.comment a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.footer {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    margin: 0;
+}
+
+.footer-container {
+    margin: auto;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #b0b0b0;
 }
