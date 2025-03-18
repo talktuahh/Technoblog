@@ -34,6 +34,10 @@ include "../includes/init.php";
         
         <h2>Bereit für dein erstes Projekt?</h2>
         <p>Check die Beginner-Tutorials auf <a href="https://www.w3schools.com/" target="_blank">W3Schools</a> und erstelle deine erste Website oder eine kleine App. Let’s go!</p>
+        <p>Hier zeigen wir ein YouTube Video als Einführung zu w3schools.</p>
+        <video controls>
+            <source src="../assets/embed/w3video.mp4" type="video/mp4">
+        </video>
     </div>
     <?php include '../includes/footer.php'; ?>
 </body>

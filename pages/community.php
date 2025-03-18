@@ -21,7 +21,7 @@ $result = $conn->query($sql);
     <?php include '../includes/header.php'; ?>
 
     <div class="magazine-container">
-        <h1><b>Community Page</b></h1>
+        <h1><b>Community Seite</b></h1>
         <p>Hier findest du alle neuste Kommentare von unseren lieben Community.</p>
         <div class="comment-section">
             <?php if ($result->num_rows > 0): ?>

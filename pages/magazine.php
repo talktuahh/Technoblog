@@ -5,10 +5,10 @@ $category = isset($_GET['category']) ? $_GET['category'] : 'all';
 
 if ($category === 'all') {
     $sql = "SELECT article_id, article_title, article_author, article_date, article_category, article_cover 
-            FROM articles ORDER BY article_id DESC";
+            FROM articles ORDER BY article_date DESC";
 } else {
     $sql = "SELECT article_id, article_title, article_author, article_date, article_category, article_cover 
-            FROM articles WHERE article_category = ? ORDER BY article_id DESC";
+            FROM articles WHERE article_category = ? ORDER BY article_date DESC";
 }
 
 $stmt = $conn->prepare($sql);
@@ -31,7 +31,7 @@ $result = $stmt->get_result();
     <?php include '../includes/header.php'; ?>
 
     <div class="magazine-container">
-        <h1>Magazine Articles</h1>
+        <h1>Magazine Artikel</h1>
         <p>Hier findest du eine filtrierbare Liste von allen unseren Artikeln.</p>
         <div class="category-filters">
             <a href="magazine.php?category=all" class="<?php echo ($category === 'all') ? 'active' : ''; ?>">
@@ -40,8 +40,8 @@ $result = $stmt->get_result();
             <a href="magazine.php?category=Hardware" class="<?php echo ($category === 'Hardware') ? 'active' : ''; ?>">
                 <button>Hardware</button>
             </a>
-            <a href="magazine.php?category=Gaming" class="<?php echo ($category === 'Gaming') ? 'active' : ''; ?>">
-                <button>Gaming</button>
+            <a href="magazine.php?category=Software" class="<?php echo ($category === 'Software') ? 'active' : ''; ?>">
+                <button>Software</button>
             </a>
         </div>
 

@@ -5,7 +5,7 @@
             <h1>Technoblog</h1>
         </a>
         <?php if (isset($_SESSION["username"])): ?>
-            <p>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</p>
+            <p>Willkommen, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</p>
         <?php endif; ?>
         <nav class="nav-links">
             <a href="../pages/main.php" class="<?php echo ($currentPage == 'main.php') ? 'active' : ''; ?>">
