@@ -57,11 +57,13 @@ $result = $stmt->get_result();
                                 <?php echo htmlspecialchars($article['article_title']); ?>
                             </a>
                         </h2>
-                        <p class="article-meta">
+                        <div class="article-meta">
+                        <p>
                             <b>Author:</b> <?php echo htmlspecialchars($article['article_author']); ?> | 
                             <b>Date:</b> <?php echo htmlspecialchars($article['article_date']); ?> | 
                             <b>Category:</b> <?php echo htmlspecialchars($article['article_category']); ?>
                         </p>
+                        </div>
                     </div>
                 </div>
             <?php endwhile; ?>
