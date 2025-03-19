@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 
     <div class="magazine-container">
         <h1><b>Community Seite</b></h1>
-        <p>Hier findest du alle neuste Kommentare von unseren lieben Community.</p>
+        <p>Hier findest du alle neusten Kommentare von unserer lieben Community.</p>
         <div class="comment-section">
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>

@@ -43,6 +43,9 @@ $result = $stmt->get_result();
             <a href="magazine.php?category=Software" class="<?php echo ($category === 'Software') ? 'active' : ''; ?>">
                 <button>Software</button>
             </a>
+            <a href="magazine.php?category=Gaming" class="<?php echo ($category === 'Gaming') ? 'active' : ''; ?>">
+                <button>Gaming</button>
+            </a>
         </div>
 
         <?php if ($result && $result->num_rows > 0): ?>
